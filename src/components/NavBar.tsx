@@ -1,5 +1,5 @@
-import { Heading, HStack, Image } from "@chakra-ui/react";
-import logo from "../assets/p1.png";
+import { Heading, HStack, Icon } from "@chakra-ui/react";
+import { FaCubesStacked } from "react-icons/fa6";
 import ColorModeSwitch from "./ColorModeSwitch";
 
 const NavBar = () => {
@@ -14,8 +14,14 @@ const NavBar = () => {
       opacity={0.8}
     >
       <span style={{ display: "flex", alignItems: "center" }}>
-        <Image src={logo} boxSize="60px"></Image>
-        <Heading fontSize={"2xl"} marginLeft={5}>
+        {/* <Image src={logo} boxSize="60px"></Image> */}
+        <Icon
+          as={FaCubesStacked}
+          boxSize={"60px"}
+          color={"yellow.500"}
+          border={"2px"}
+        ></Icon>
+        <Heading fontSize={"2xl"} marginLeft={5} color={"yellow.500"}>
           Game Hub
         </Heading>
       </span>

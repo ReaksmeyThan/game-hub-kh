@@ -6,11 +6,11 @@ function ColorModeSwitch() {
     <HStack>
       <Switch
         size="sm"
-        colorScheme="teal"
+        colorScheme="yellow"
         isChecked={colorMode === "dark"}
         onChange={toggleColorMode}
       />
-      <Text>Toggle Color Mode</Text>
+      <Text>Switch Mode</Text>
     </HStack>
   );
 }
