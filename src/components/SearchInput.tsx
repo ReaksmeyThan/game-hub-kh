@@ -15,8 +15,8 @@ const SearchInput = ({ onSearch }: Props) => {
       }}
     >
       <InputGroup>
-        <InputLeftElement children={<BsSearch />} />
-        <Input ref={ref} placeholder="Search games" variant={"filled"} borderRadius={20} />
+        <InputLeftElement children={<BsSearch />} color={"yellow.500"} borderColor={"yellow.500"} />
+        <Input ref={ref} placeholder="Search games" variant={"filled"} borderRadius={20} borderColor={"yellow.500"} color={"yellow.600"} />
       </InputGroup>
     </form>
   );

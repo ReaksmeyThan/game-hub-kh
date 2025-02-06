@@ -8,7 +8,15 @@ interface Props {
 }
 const NavBar = ({ onSearch }: Props) => {
   return (
-    <HStack padding={"10px "} boxShadow={"md"} position={"sticky"} marginBottom={"10px"} blur={2} opacity={0.8}>
+    <HStack
+      padding={"10px "}
+      boxShadow={"md"}
+      position={"sticky"}
+      marginBottom={"10px"}
+      blur={2}
+      bgImage={"linear-gradient(90deg,rgb(42, 48, 61) 0%,rgb(52, 49, 24) 100%)"}
+      zIndex={1}
+    >
       <span style={{ display: "flex", alignItems: "center" }}>
         {/* <Image src={logo} boxSize="60px"></Image> */}
         <Icon as={FaCubesStacked} boxSize={"60px"} color={"yellow.500"} border={"2px"}></Icon>
