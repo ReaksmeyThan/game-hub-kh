@@ -9,7 +9,7 @@ const RatingGame = ({ rating }: Props) => {
     <span key={i}>{rating >= i ? <Icon as={GiRoundStar} /> : <Icon as={GiRoundStar} color={"gray"} />}</span>
   ));
   return (
-    <HStack width={"100px"} position={"absolute"} top={"0px"} right={"0px"} color={"yellow"} padding={1}>
+    <HStack width={"auto"} position={"absolute"} top={"0px"} right={"0px"} color={"yellow"} padding={1}>
       {stars}
     </HStack>
   );
