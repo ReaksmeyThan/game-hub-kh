@@ -34,7 +34,9 @@ const RatingGame = ({ rating }: Props) => {
     </svg>
   );
 
-  const stars = Array.from({ length: 5 }, (_, index) => index + 1).map((i) => (rating >= i ? FullStarIcon() : EmptyStarIcon()));
+  const stars = Array.from({ length: 5 }, (_, index) => index + 1).map((i) => (
+    <span key={i}>{rating >= i ? <FullStarIcon /> : <EmptyStarIcon />}</span>
+  ));
   return (
     <HStack width={"100px"} position={"absolute"} top={"0px"} right={"0px"} color={"yellow"} padding={1}>
       {stars}
