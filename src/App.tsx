@@ -13,6 +13,7 @@ export interface GameQuery {
   genre: Genre | null;
   platform: Platform | null;
   sortOrder: string;
+  search: string;
 }
 
 function App() {
@@ -27,30 +28,20 @@ function App() {
       templateColumns={{ base: "1fr", lg: "200px 1fr" }}
     >
       <GridItem area="nav">
-        <NavBar />
+        <NavBar onSearch={(search) => setGameQuery({ ...gameQuery, search })} />
       </GridItem>
 
       <Show above="lg">
         <GridItem area="aside" paddingX={5}>
-          <GenreList
-            selectedGenre={gameQuery.genre}
-            onSelectedGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
-          />
+          <GenreList selectedGenre={gameQuery.genre} onSelectedGenre={(genre) => setGameQuery({ ...gameQuery, genre })} />
         </GridItem>
       </Show>
 
       <GridItem area="main">
         <HStack spacing={5} paddingLeft={2} marginBottom={5}>
-          <PlatformSelector
-            onSelectedPlatform={(p) =>
-              setGameQuery({ ...gameQuery, platform: p })
-            }
-            selectedPlatform={gameQuery.platform}
-          />
+          <PlatformSelector onSelectedPlatform={(p) => setGameQuery({ ...gameQuery, platform: p })} selectedPlatform={gameQuery.platform} />
           <SortSelector
-            onSelectedSortOrder={(sortOrder) =>
-              setGameQuery({ ...gameQuery, sortOrder: sortOrder })
-            }
+            onSelectedSortOrder={(sortOrder) => setGameQuery({ ...gameQuery, sortOrder: sortOrder })}
             selectSortOrder={gameQuery.sortOrder}
           />
         </HStack>

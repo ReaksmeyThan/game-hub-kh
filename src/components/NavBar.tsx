@@ -3,7 +3,10 @@ import { FaCubesStacked } from "react-icons/fa6";
 import ColorModeSwitch from "./ColorModeSwitch";
 import SearchInput from "./SearchInput";
 
-const NavBar = () => {
+interface Props {
+  onSearch: (searchText: string) => void;
+}
+const NavBar = ({ onSearch }: Props) => {
   return (
     <HStack padding={"10px "} boxShadow={"md"} position={"sticky"} marginBottom={"10px"} blur={2} opacity={0.8}>
       <span style={{ display: "flex", alignItems: "center" }}>
@@ -13,7 +16,7 @@ const NavBar = () => {
           Game Hub
         </Heading>
       </span>
-      <SearchInput />
+      <SearchInput onSearch={onSearch} />
 
       <ColorModeSwitch />
     </HStack>
