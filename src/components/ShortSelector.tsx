@@ -38,18 +38,11 @@ const SortSelector = ({ onSelectedSortOrder, selectSortOrder }: Props) => {
     <Menu>
       <MenuButton as={Button} rightIcon={<BsChevronDown />}>
         {"Sort by: "}
-        {
-          (selectSortOrder =
-            shortOrder.find((order) => order.value === selectSortOrder)
-              ?.label || "Relevance")
-        }
+        {(selectSortOrder = shortOrder.find((order) => order.value === selectSortOrder)?.label || "Relevance")}
       </MenuButton>
       <MenuList>
         {shortOrder.map((order) => (
-          <MenuItem
-            key={order.value}
-            onClick={() => onSelectedSortOrder(order.value)}
-          >
+          <MenuItem key={order.value} onClick={() => onSelectedSortOrder(order.value)}>
             {order.label}
           </MenuItem>
         ))}

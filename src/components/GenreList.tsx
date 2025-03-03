@@ -3,7 +3,7 @@ import getCroppedImageUrl from "@/services/image-url";
 import { Button, Heading, HStack, Image, List, ListItem, Spinner } from "@chakra-ui/react";
 
 interface Props {
-  onSelectedGenre: (gener: Genre) => void;
+  onSelectedGenre: (genre: Genre) => void;
   selectedGenre: Genre | null;
 }
 const GenreList = ({ selectedGenre, onSelectedGenre }: Props) => {
@@ -17,7 +17,7 @@ const GenreList = ({ selectedGenre, onSelectedGenre }: Props) => {
         Genre
       </Heading>
       <List>
-        {data.map((g) => (
+        {data?.results.map((g: Genre) => (
           <ListItem key={g.id} paddingY={"5px"}>
             <HStack>
               <Image alt={g.name} boxSize={"42px"} borderRadius={"8px"} objectFit={"cover"} src={getCroppedImageUrl(g.image_background)} />
