@@ -20,11 +20,11 @@ const GameGrid = ({ gameQuery }: Props) => {
   return (
     <InfiniteScroll
       dataLength={fectchedGameCount}
-      hasMore={hasNextPage}
+      hasMore={!!hasNextPage}
       next={() => fetchNextPage()}
       loader={
         isFetchingNextPage && (
-          <SimpleGrid columns={{ sm: 1, md: 3, lg: 4, xl: 6 }} spacing={3}>
+          <SimpleGrid columns={{ sm: 1, md: 3, lg: 4, xl: 5 }} spacing={3} marginTop={3}>
             {Array.from({ length: 6 }, (_, index) => (
               <GameCardContainer key={index}>
                 <GameCardSkeleton />
@@ -38,8 +38,9 @@ const GameGrid = ({ gameQuery }: Props) => {
           <b>Games have seen it all</b>
         </p>
       }
+      scrollableTarget="scrollableDiv"
     >
-      <SimpleGrid columns={{ sm: 1, md: 3, lg: 4, xl: 6 }} spacing={3}>
+      <SimpleGrid columns={{ sm: 1, md: 3, lg: 4, xl: 5 }} spacing={3}>
         {isLoading &&
           skeleton.map((index) => (
             <GameCardContainer key={index}>
