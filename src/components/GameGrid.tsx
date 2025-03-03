@@ -20,7 +20,7 @@ const GameGrid = ({ gameQuery }: Props) => {
   return (
     <InfiniteScroll
       dataLength={fectchedGameCount}
-      hasMore={!!hasNextPage}
+      hasMore={hasNextPage}
       next={() => fetchNextPage()}
       loader={
         isFetchingNextPage && (
@@ -35,7 +35,7 @@ const GameGrid = ({ gameQuery }: Props) => {
       }
       endMessage={
         <p style={{ textAlign: "center" }}>
-          <b>Yay! You have seen it all</b>
+          <b>Games have seen it all</b>
         </p>
       }
     >
