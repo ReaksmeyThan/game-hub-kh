@@ -4,9 +4,9 @@ import { Button, Heading, HStack, Image, List, ListItem, Spinner } from "@chakra
 
 interface Props {
   onSelectedGenre: (genre: Genre) => void;
-  selectedGenre: Genre | null;
+  selectedGenreID?: number;
 }
-const GenreList = ({ selectedGenre, onSelectedGenre }: Props) => {
+const GenreList = ({ selectedGenreID, onSelectedGenre }: Props) => {
   const { data, isLoading, error } = useGenres();
 
   if (isLoading) return <Spinner />;
@@ -17,7 +17,7 @@ const GenreList = ({ selectedGenre, onSelectedGenre }: Props) => {
         Genre
       </Heading>
       <List>
-        {data?.results.map((g: Genre) => (
+        {data?.results.map((g) => (
           <ListItem key={g.id} paddingY={"5px"}>
             <HStack>
               <Image alt={g.name} boxSize={"42px"} borderRadius={"8px"} objectFit={"cover"} src={getCroppedImageUrl(g.image_background)} />
@@ -29,7 +29,7 @@ const GenreList = ({ selectedGenre, onSelectedGenre }: Props) => {
                 onClick={() => {
                   onSelectedGenre(g);
                 }}
-                colorScheme={selectedGenre?.id === g.id ? "yellow" : "gray"}
+                colorScheme={selectedGenreID === g.id ? "yellow" : "gray"}
               >
                 {g.name}
               </Button>
