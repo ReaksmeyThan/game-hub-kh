@@ -7,9 +7,15 @@ export interface Game {
   id: number;
   name: string;
   background_image: string;
-  parent_platforms: { platform: Platform }[];
+  released: string;
   metacritic: number;
   rating: number;
+  parent_platforms: { platform: Platform }[];
+  description?: string;
+  trailer_url?: string;
+  tags?: any[];
+  reviews_count?: number;
+  is_free?: boolean;
 }
 const apiClient = new ApiClient<Game>("/games");
 
