@@ -3,10 +3,8 @@ import { GiCubeforce } from "react-icons/gi";
 import ColorModeSwitch from "./ColorModeSwitch";
 import SearchInput from "./SearchInput";
 
-interface Props {
-  onSearch: (searchText: string) => void;
-}
-const NavBar = ({ onSearch }: Props) => {
+
+const NavBar = () => {
   return (
     <HStack
       padding={"10px "}
@@ -22,7 +20,7 @@ const NavBar = ({ onSearch }: Props) => {
           Game Hub
         </Heading>
       </span>
-      <SearchInput onSearch={onSearch} />
+      <SearchInput  />
 
       <ColorModeSwitch />
     </HStack>
