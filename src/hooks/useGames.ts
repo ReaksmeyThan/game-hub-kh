@@ -2,7 +2,7 @@ import ApiClient, { FetchResponse } from "@/services/api-client";
 import useGameQueryStore from "@/store";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import ms from "ms";
-import { Game } from "../entities/Game";
+import Game from "../entities/Game";
 
 const apiClient = new ApiClient<Game>("/games");
 
@@ -25,9 +25,9 @@ const useGames = () => {
       return lastPage.next ? allPages.length + 1 : undefined;
     },
     initialPageParam: 1,
-   staleTime: ms("24h"), // 24 hours
+    staleTime: ms("24h"), // 24 hours
   });
 }
-  
+
 
 export default useGames;

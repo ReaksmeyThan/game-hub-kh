@@ -1,36 +1,33 @@
-import { Game } from '@/entities/Game';
-import { SimpleGrid, Text } from '@chakra-ui/react';
-import CriticScore from './CriticScore';
-import { DefinitionItem } from './DefinitiontItem';
-
-
-
+import Game from "@/entities/Game";
+import { SimpleGrid, Text } from "@chakra-ui/react";
+import CriticScore from "./CriticScore";
+import { DefinitionItem } from "./DefinitiontItem";
 
 interface Props {
-    game: Game;
+  game: Game;
 }
 
 export const GameAttributes = ({ game }: Props) => {
   return (
-        <SimpleGrid columns={2} spacing={5} mt={5} as ="dl">
-        <DefinitionItem term="Platforms">
-          {game.parent_platforms?.map(({ platform }) => (
-            <Text key={platform.id}>{platform.name}</Text>
-          ))}
-        </DefinitionItem>
-        <DefinitionItem term="Metastore">
-          <CriticScore score={game.metacritic} />
-        </DefinitionItem>
-        <DefinitionItem term="Genres">
-          {game.genres.map((genre) => (
-            <Text key={genre.id}>{genre.name}</Text>
-          ))}
-        </DefinitionItem>
-        <DefinitionItem term="Publisher">
-          {game.publishers?.map((publisher) => (
-            <Text key={publisher.id}>{publisher.name}</Text>
-          ))}
-        </DefinitionItem>
-      </SimpleGrid>
-  )
-}
+    <SimpleGrid columns={2} spacing={5} mt={5} as="dl">
+      <DefinitionItem term="Platforms">
+        {game.parent_platforms?.map(({ platform }) => (
+          <Text key={platform.id}>{platform.name}</Text>
+        ))}
+      </DefinitionItem>
+      <DefinitionItem term="Metastore">
+        <CriticScore score={game.metacritic} />
+      </DefinitionItem>
+      <DefinitionItem term="Genres">
+        {game.genres.map((genre) => (
+          <Text key={genre.id}>{genre.name}</Text>
+        ))}
+      </DefinitionItem>
+      <DefinitionItem term="Publisher">
+        {game.publishers?.map((publisher) => (
+          <Text key={publisher.id}>{publisher.name}</Text>
+        ))}
+      </DefinitionItem>
+    </SimpleGrid>
+  );
+};

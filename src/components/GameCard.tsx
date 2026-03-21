@@ -1,4 +1,4 @@
-import { Game } from "@/entities/Game";
+import Game from "@/entities/Game";
 import getCroppedImageUrl from "@/services/image-url";
 import { Box, Card, CardBody, Heading, HStack, Image, Popover, PopoverContent, PopoverTrigger } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
@@ -84,21 +84,15 @@ const GameCard = ({ game }: Props) => {
           zIndex={2}
           width="320px"
         >
-          <Image
-            src={getCroppedImageUrl(game.background_image)}
-            boxSize="80px"
-            borderRadius="md"
-            mr={3}
-            border="2px solid white"
-            objectFit="cover"
-          />
+          <Image src={getCroppedImageUrl(game.background_image)} boxSize="80px" borderRadius="md" mr={3} border="2px solid white" objectFit="cover" />
           <Box>
-            <Heading size="md" color="white" mb={1}>{game.name}</Heading>
+            <Heading size="md" color="white" mb={1}>
+              {game.name}
+            </Heading>
             {/* You can add more info here if needed */}
           </Box>
         </Box>
         <Box pt={100} pb={4} px={5}>
-
           {/* Tags */}
           {/* <HStack spacing={2} mb={2} flexWrap="wrap">
             {game.tags?.slice(0, 6).map((tag: any) => (
