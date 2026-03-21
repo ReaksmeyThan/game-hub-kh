@@ -1,7 +1,9 @@
-import { Game } from '@/entities/Game'
-import { SimpleGrid, Text } from '@chakra-ui/react'
-import CriticScore from './CriticScore'
-import { DefinitionItem } from './DefinitiontItem'
+import { Game } from '@/entities/Game';
+import { SimpleGrid, Text } from '@chakra-ui/react';
+import CriticScore from './CriticScore';
+import { DefinitionItem } from './DefinitiontItem';
+
+
 
 
 interface Props {
@@ -16,7 +18,7 @@ export const GameAttributes = ({ game }: Props) => {
             <Text key={platform.id}>{platform.name}</Text>
           ))}
         </DefinitionItem>
-        <DefinitionItem term="Metascore">
+        <DefinitionItem term="Metastore">
           <CriticScore score={game.metacritic} />
         </DefinitionItem>
         <DefinitionItem term="Genres">
