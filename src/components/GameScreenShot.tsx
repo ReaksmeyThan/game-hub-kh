@@ -1,6 +1,6 @@
 import useScreenShots from "@/hooks/useScreenShots";
 
-import { Img, SimpleGrid } from "@chakra-ui/react";
+import { Img, SimpleGrid, Spinner } from "@chakra-ui/react";
 
 interface Props {
   id: number;
@@ -9,7 +9,7 @@ interface Props {
 export const GameScreenShot = ({ id }: Props) => {
     const { data, error, isLoading } = useScreenShots({ id });
 
-    if (isLoading) return <p>Loading...</p>;
+    if (isLoading) return <Spinner />;
     if (error) return <p>Error: {error.message}</p>;
     return (
         <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={4} mt={4}>
