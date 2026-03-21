@@ -1,4 +1,4 @@
-import { Game } from "@/hooks/useGames";
+import { Game } from "@/entities/Game";
 import getCroppedImageUrl from "@/services/image-url";
 import { Box, Card, CardBody, Heading, HStack, Image, Popover, PopoverContent, PopoverTrigger } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
@@ -121,7 +121,7 @@ const GameCard = ({ game }: Props) => {
           </Box>
           {/* Release Date */}
           <Box color="gray.400" fontSize="sm">
-            <span role="img" aria-label="calendar"></span> {game.released || "Unknown Release Date"}
+            📅 {game.released || "Unknown Release Date"}
           </Box>
           {/* Description (optional) */}
           <Box mt={3} color="gray.300" fontSize="sm" noOfLines={3}>
