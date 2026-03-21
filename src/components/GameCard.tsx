@@ -32,6 +32,7 @@ const GameCard = ({ game }: Props) => {
         </Box>
       </PopoverTrigger>
       <GameDetailCard id={game.id} game={game} />
+      
     </Popover>
   );
 };
