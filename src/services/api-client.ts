@@ -18,12 +18,14 @@ class ApiClient<T> {
   constructor(endpoint: string) {
     this.endpoint = endpoint;
   }
-
-  getAll = (config: AxiosRequestConfig) => {
-    return apiClientInstance.get<FetchResponse<T>>(this.endpoint, config).then((res) => res.data);
-  };
   post = (config?: AxiosRequestConfig) => {
     return apiClientInstance.post<T>(this.endpoint, config).then((res) => res.data);
   };
+  getAll = (config: AxiosRequestConfig) => {
+    return apiClientInstance.get<FetchResponse<T>>(this.endpoint, config).then((res) => res.data);
+  };
+  get = (id: number | string) => {
+    return apiClientInstance.get<T>(this.endpoint + '/' + id).then((res) => res.data);
+  }
 }
 export default ApiClient;
