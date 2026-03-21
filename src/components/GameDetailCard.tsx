@@ -2,7 +2,7 @@ import Game from "@/entities/Game";
 import useGame from "@/hooks/useGame";
 import useTrailers from "@/hooks/useTrailers";
 import getCroppedImageUrl from "@/services/image-url";
-import { Box, Heading, HStack, Image, PopoverContent } from "@chakra-ui/react";
+import { Box, Heading, HStack, Image, PopoverContent, Spinner } from "@chakra-ui/react";
 
 import { ExpandableText } from "./ExpandableText";
 
@@ -17,27 +17,28 @@ export const GameDetailCard = ({ id, game }: Props) => {
 
   const { data: gameData } = useGame(game.slug);
 
-  if (isLoading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
+  if (isLoading) return <Spinner />;
+  if (error) return null;
 
   return (
-    <PopoverContent maxW="1000px" borderRadius="lg" overflow="hidden" bg="gray.800" color="white" boxShadow="xl" p={0}>
-      <Box position="relative" w="100%" h="220px" bg="black">
+    <PopoverContent maxW="600px" w="auto" h="auto" borderRadius="lg" overflow="hidden" bg="gray.800" color="white" boxShadow="xl" p={0}>
+      {/* video  */}
+      <Box position="relative" w="100%" h="400px" bg="black">
         <video
-          width="100%"
-          height="220"
+          width="auto"
+          height="400px"
           autoPlay
           muted
           loop
           style={{ objectFit: "cover", width: "100%", height: "100%" }}
           poster={getCroppedImageUrl(game.background_image)}
         >
-          <source src={first?.data?.max} type="video/mp4" />
+          <source src={first?.data[480]} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
 
         {/* Free to Play badge (optional) */}
-        {game.is_free && (
+        {!game.is_free && (
           <Box position="absolute" top="12px" right="16px" bg="blue.500" px={3} py={1} borderRadius="md" fontWeight="bold" fontSize="sm">
             Free To Play
           </Box>
@@ -47,7 +48,7 @@ export const GameDetailCard = ({ id, game }: Props) => {
       <Box
         position="absolute"
         left="16px"
-        top="200px"
+        top="350px"
         bg="gray.500"
         borderRadius="md"
         boxShadow="lg"
